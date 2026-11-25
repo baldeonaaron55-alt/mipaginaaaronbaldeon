@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Powerfit - Plataforma integral de gestión para gimnasio: rutinas personalizadas, membresías, horarios y progreso físico.">
+  <title>Powerfit | Plataforma Integral de Gimnasio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ================= NAVEGACIÓN ================= -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#inicio" class="brand" id="brandHomeLink">
+        <img src="assets/img/logo.png" alt="Logo Powerfit">
+        <div>POWER<span>FIT</span></div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#planes" data-public-link>Planes</a>
+        <a href="#servicios" data-public-link>Servicios</a>
+        <a href="#horarios" data-public-link>Horarios</a>
+        <a href="#ejercicios" data-public-link>Ejercicios</a>
+        <a href="#acerca" data-public-link>Proyecto</a>
+        <a href="#contacto" data-public-link>Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm cart-btn" id="btnOpenCart" type="button" aria-label="Abrir carrito de membresías">
+          🛒 Carrito <span class="cart-count" id="cartCountBadge">0</span>
+        </button>
+
+        <div id="authGuestActions" class="nav-actions">
+          <button class="btn btn-ghost btn-sm" id="btnOpenLogin">Iniciar sesión</button>
+          <button class="btn btn-primary btn-sm" id="btnOpenRegister">Registrarme</button>
+        </div>
+
+        <div id="authUserActions" class="nav-actions hidden">
+          <button class="btn btn-secondary btn-sm" id="btnToggleView">Mi Panel</button>
+          <span class="badge badge-red" id="navUserRole">Cliente</span>
+          <button class="btn btn-ghost btn-sm" id="btnLogout">Salir</button>
+        </div>
+
+        <button class="menu-toggle" id="btnMenuToggle" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= VISTA PÚBLICA (LANDING) ================= -->
+  <main id="publicView">
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge badge-red">Gimnasio Digital • Quito</span>
+          <h1>Entrena con orden, sigue tu <span class="highlight">rutina</span> y mide tu progreso</h1>
+          <p class="hero-lead">
+            Powerfit centraliza tus rutinas personalizadas por grupo muscular, horarios de clases,
+            planes de membresía y control de evolución física en una sola plataforma accesible desde tu celular o computadora.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="btnHeroStart">Crear cuenta gratis</button>
+            <a href="#planes" class="btn btn-secondary">Ver planes de membresía</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>3 Roles</strong>
+              <span>Cliente, Entrenador y Admin</span>
+            </div>
+            <div class="hero-stat">
+              <strong>100% Digital</strong>
+              <span>Rutinas, horarios y membresías</span>
+            </div>
+            <div class="hero-stat">
+              <strong>6 Días</strong>
+              <span>Entrenamiento guiado por semana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="assets/img/logo.png" alt="Emblema Powerfit">
+          <p>Accede con una cuenta demo para probar el portal de <strong>Cliente</strong>, <strong>Entrenador</strong> o <strong>Administrador</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes de Membresía -->
+    <section class="section" id="planes">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Planes de Membresía</h2>
+            <p>Selecciona la cantidad de personas y agrega membresías al carrito para calcular descuentos grupales (hasta 15%) + IVA (15%).</p>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="badge badge-green">2 pers: 5% OFF • 3-4: 10% OFF • 5+: 15% OFF</span>
+            <span class="badge badge-neutral">USD ($) + IVA 15%</span>
+          </div>
+        </div>
+        <div class="grid-3" id="publicPlanesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Servicios y Video de Calentamiento -->
+    <section class="section section-alt" id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Disciplinas y Calentamiento Guiado</h2>
+            <p>Combina fuerza, resistencia y prevención de lesiones con acompañamiento profesional.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <img src="assets/img/musculacion.jpg" alt="Zona de Musculación Powerfit" class="service-img">
+            <h3>Musculación Asistida</h3>
+            <p style="color: var(--text-secondary);">
+              Máquinas, peso libre y rutinas personalizadas asignadas por nuestros entrenadores según tu nivel y objetivo.
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="assets/img/bailoterapia.jpg" alt="Clases de Bailoterapia Powerfit" class="service-img">
+            <h3>Bailoterapia & Cardio</h3>
+            <p style="color: var(--text-secondary);">
+              Sesiones grupales llenas de energía para mejorar tu resistencia cardiovascular, coordinación y quema calórica.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="video-wrapper" style="margin-bottom: 16px;">
+              <video src="assets/video/calentamiento.mp4" controls preload="metadata">
+                Tu navegador no soporta la reproducción de video HTML5.
+              </video>
+            </div>
+            <h3>Calentamiento Preventivo (5 min)</h3>
+            <p style="color: var(--text-secondary);">
+              Activa articulaciones y músculos antes de entrenar para mejorar tu rendimiento y evitar lesiones.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horarios -->
+    <section class="section" id="horarios">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Horarios del Gimnasio</h2>
+            <p>Consulta la disponibilidad actualizada de sala de pesas, bailoterapia y entrenamiento funcional.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Actividad</th>
+                <th>Días</th>
+                <th>Horario</th>
+                <th>Entrenador</th>
+                <th>Sala</th>
+                <th>Cupo</th>
+              </tr>
+            </thead>
+            <tbody id="publicHorariosBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catálogo Público de Ejercicios -->
+    <section class="section section-alt" id="ejercicios">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Biblioteca de Ejercicios</h2>
+            <p>Filtra por grupo muscular para revisar la técnica recomendada antes de realizar tu rutina.</p>
+          </div>
+        </div>
+        <div class="filter-bar" id="publicExerciseFilters"></div>
+        <div class="grid-3" id="publicExercisesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Acerca del Proyecto -->
+    <section class="section" id="acerca">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Acerca de Powerfit</h2>
+            <p>Solución tecnológica diseñada para modernizar la operación diaria de un gimnasio y eliminar el manejo manual.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="badge badge-red" style="align-self: flex-start; margin-bottom: 12px;">El Problema</span>
+            <h3>Gestión Manual y Desorganización</h3>
+            <p style="color: var(--text-secondary);">
+              Muchos gimnasios gestionan horarios, vencimientos de membresías y asignación de rutinas mediante papel o mensajes dispersos,
+              generando confusión y pérdida de tiempo para clientes, entrenadores y administradores.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="badge badge-blue" style="align-self: flex-start; margin-bottom: 12px;">La Solución</span>
+            <h3>Todo en Un Solo Lugar</h3>
+            <p style="color: var(--text-secondary);">
+              Powerfit reúne en una plataforma web responsiva el registro de usuarios, la asignación personalizada de rutinas por entrenador,
+              la administración de membresías con fechas de vencimiento y el seguimiento del progreso físico.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="badge badge-green" style="align-self: flex-start; margin-bottom: 12px;">Beneficiarios</span>
+            <h3>Clientes, Entrenadores y Admin</h3>
+            <p style="color: var(--text-secondary);">
+              Los clientes organizan sus entrenamientos desde el móvil; los entrenadores asignan rutinas claras sin fricción;
+              y los administradores controlan planes, horarios e indicadores clave en tiempo real.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section section-alt" id="contacto">
+      <div class="container">
+        <div class="grid-2" style="align-items: start;">
+          <div>
+            <h2>¿Tienes dudas o deseas más información?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+              Déjanos tus datos y un asesor o entrenador de Powerfit responderá tu solicitud. Tu mensaje se registra directamente en el panel administrativo.
+            </p>
+            <div class="card">
+              <h3 style="margin-bottom: 10px;">Información del Gimnasio</h3>
+              <p style="margin: 4px 0; color: var(--text-secondary);"><strong>Ubicación:</strong> Quito, Ecuador</p>
+              <p style="margin: 4px 0; color: var(--text-secondary);"><strong>Horario general:</strong> Lunes a Sábado, 06:00 – 21:00</p>
+              <p style="margin: 4px 0; color: var(--text-secondary);"><strong>Contacto:</strong> info@powerfit.ec</p>
+            </div>
+          </div>
+
+          <form class="card" id="contactForm">
+            <h3 style="margin-bottom: 16px;">Solicitar información</h3>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="cNombre">Nombre completo *</label>
+                <input type="text" id="cNombre" placeholder="Ej: Aaron Baldeon" required>
+              </div>
+              <div class="form-group">
+                <label for="cCorreo">Correo electrónico *</label>
+                <input type="email" id="cCorreo" placeholder="correo@ejemplo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="cTelefono">Teléfono</label>
+                <input type="tel" id="cTelefono" placeholder="099 123 4567">
+              </div>
+              <div class="form-group full">
+                <label for="cInteres">¿En qué estás interesado? *</label>
+                <select id="cInteres" required>
+                  <option value="">Elige una opción</option>
+                  <option value="Información de rutinas personalizadas">Información de rutinas personalizadas</option>
+                  <option value="Precios y planes de membresía">Precios y planes de membresía</option>
+                  <option value="Clases de bailoterapia y horarios">Clases de bailoterapia y horarios</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="cComentario">Comentario</label>
+                <textarea id="cComentario" rows="3" placeholder="Cuéntanos tu objetivo de entrenamiento..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= VISTA PANEL AUTENTICADO ================= -->
+  <main id="dashboardView" class="dashboard hidden">
+    <div class="container">
+      <div class="dashboard-top">
+        <div>
+          <span class="badge badge-red" id="dashRoleBadge">Panel</span>
+          <h1 style="margin: 8px 0 4px;" id="dashGreeting">Bienvenido</h1>
+          <p style="margin: 0; color: var(--text-secondary);" id="dashSubtitle"></p>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-secondary btn-sm" id="btnBackToPublic">Ver sitio público</button>
+        </div>
+      </div>
+
+      <!-- KPIs dinámicos -->
+      <div class="grid-4" id="dashKpis"></div>
+
+      <!-- Pestañas dinámicas por rol -->
+      <div class="tabs" id="dashTabs" role="tablist"></div>
+
+      <!-- Contenido del panel -->
+      <div id="dashContent"></div>
+    </div>
+  </main>
+
+  <!-- ================= CARRITO & CALCULADORA DE MEMBRESÍAS ================= -->
+  <div class="cart-drawer-backdrop hidden" id="cartDrawerBackdrop" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+    <aside class="cart-drawer">
+      <div class="cart-drawer-header">
+        <div>
+          <h2 id="cartDrawerTitle" style="margin:0; font-size:1.25rem;">🛒 Carrito de Membresías</h2>
+          <small style="color:var(--text-secondary);">Calculadora automática de personas, descuentos + IVA (15%)</small>
+        </div>
+        <button class="modal-close" id="btnCloseCart" aria-label="Cerrar carrito">&times;</button>
+      </div>
+
+      <div class="cart-drawer-body" id="cartDrawerBody"></div>
+    </aside>
+  </div>
+
+  <!-- ================= MODAL AUTENTICACIÓN ================= -->
+  <div class="modal-backdrop hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="authModalTitle" style="margin: 0;">Iniciar sesión en Powerfit</h2>
+        <button class="modal-close" id="btnCloseAuthModal" aria-label="Cerrar">&times;</button>
+      </div>
+
+      <div class="tabs" style="margin: 0 0 18px; padding-bottom: 10px;">
+        <button class="tab-btn active" id="tabAuthLogin" type="button">Iniciar sesión</button>
+        <button class="tab-btn" id="tabAuthRegister" type="button">Crear cuenta</button>
+      </div>
+
+      <!-- Formulario Login -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginCorreo">Correo electrónico</label>
+          <input type="email" id="loginCorreo" placeholder="aaron@powerfit.ec" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+
+        <div class="demo-box">
+          <p><strong>Acceso rápido con cuentas de prueba:</strong></p>
+          <div class="demo-buttons">
+            <button type="button" class="btn btn-secondary btn-sm" data-demo-login="cliente">Cliente</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-demo-login="entrenador">Entrenador</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-demo-login="admin">Admin</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Formulario Registro -->
+      <form id="registerForm" class="hidden">
+        <div class="form-group">
+          <label for="regNombre">Nombre completo *</label>
+          <input type="text" id="regNombre" placeholder="Ej: Aaron Baldeon" required>
+        </div>
+        <div class="form-group">
+          <label for="regCorreo">Correo electrónico *</label>
+          <input type="email" id="regCorreo" placeholder="tu@correo.com" required>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="regEdad">Edad *</label>
+            <input type="number" id="regEdad" min="14" max="95" placeholder="22" required>
+          </div>
+          <div class="form-group">
+            <label for="regTelefono">Teléfono</label>
+            <input type="tel" id="regTelefono" placeholder="0991234567">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Contraseña (mín. 6 caracteres) *</label>
+          <input type="password" id="regPassword" minlength="6" placeholder="Crea una contraseña segura" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Crear mi cuenta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Powerfit</strong> — Proyecto desarrollado por <strong>Aaron Baldeon</strong> · Fundamentos de Programación I – ISP ADE
+      </div>
+      <div>
+        <span class="badge badge-neutral" id="engineModeBadge">Conectando...</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contenedor de notificaciones -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
